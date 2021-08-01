@@ -1,0 +1,9 @@
+---
+- name: Install essentials
+  apt:
+    name:
+      - net-tools
+      - ncdu
+      - vnstat
+    state: latest
+    update_cache: true

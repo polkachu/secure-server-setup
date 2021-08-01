@@ -1,0 +1,56 @@
+---
+- name: install ufw
+  apt:
+    name: ufw
+    state: present
+    update_cache: yes
+
+- name: ufw already enabled
+  command: ufw status verbose
+  register: ufw_status_result
+  changed_when: False
+
+- name: open alternative ssh port
+  command: ufw allow 2200/tcp
+  when: not ufw_status_result.stdout is search("2200/tcp.*ALLOW IN.*Anywhere")
+
+- name: close standard ssh port
+  command: ufw deny 22/tcp
+  when:
+    - not ufw_status_result.stdout is search("22/tcp.*DENY IN.*Anywhere")
+
+- name: Disable port 22 on ssh config
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regex: "^Port 22"
+    line: "Port 2200"
+    state: present
+    create: true
+
+- name: Disable root login over SSH
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: "^PermitRootLogin"
+    line: "PermitRootLogin no"
+    state: present
+
+- name: Disable password login
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: "^PasswordAuthentication"
+    line: "PasswordAuthentication no"
+    state: present
+
+- name: Restart SSH
+  service:
+    name: ssh
+    state: restarted
+  changed_when: false
+
+- name: enable firewall
+  shell: |
+    set -o pipefail
+    echo "y" | ufw enable
+  args:
+    executable: /bin/bash
+  when: not ufw_status_result.stdout is search("Status.* active")

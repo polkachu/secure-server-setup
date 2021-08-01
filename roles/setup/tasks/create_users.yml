@@ -1,0 +1,36 @@
+---
+- name: Create Ansible user
+  user:
+    name: ansible
+    comment: "Ansible user"
+    shell: /bin/bash
+
+- name: Add ansible authorized key
+  authorized_key:
+    user: ansible
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    exclusive: yes
+
+- name: Allow sudo for ansible
+  copy:
+    content: "ansible ALL=(ALL) NOPASSWD: ALL"
+    dest: /etc/sudoers.d/ansible
+    mode: 0600
+
+- name: Create administator user
+  user:
+    name: ubuntu
+    comment: "admin user"
+    shell: /bin/bash
+
+- name: Add administator authorized key
+  authorized_key:
+    user: ubuntu
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    exclusive: yes
+
+- name: Allow sudo for administator
+  copy:
+    content: "ubuntu ALL=(ALL) NOPASSWD: ALL"
+    dest: /etc/sudoers.d/ubuntu
+    mode: 0600
