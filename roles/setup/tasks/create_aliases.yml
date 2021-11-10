@@ -1,0 +1,8 @@
+---
+- name: create alias file
+  template:
+    src: bash_aliases.j2
+    dest: '/home/{{ deployment_user }}/.bash_aliases'
+    owner: '{{deployment_user}}'
+    group: '{{deployment_user}}'
+    mode: 0644
