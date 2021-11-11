@@ -1,8 +1,8 @@
 ---
 - name: change hostname
   hostname:
-    name: "{{hostname}}"
+    name: '{{hostname}}'
 
 - name: Update Timezone to my time
-  shell: "timedatectl set-timezone America/Los_Angeles"
+  shell: 'timedatectl set-timezone America/Los_Angeles'
   changed_when: false

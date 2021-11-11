@@ -21,24 +21,25 @@
 
 - name: Disable port 22 on ssh config
   lineinfile:
-    dest: "/etc/ssh/sshd_config"
-    regex: "^Port 22"
-    line: "Port 2200"
+    dest: '/etc/ssh/sshd_config'
+    regex: '^Port 22'
+    line: 'Port 2200'
     state: present
     create: true
 
 - name: Disable root login over SSH
   lineinfile:
-    dest: "/etc/ssh/sshd_config"
-    regexp: "^PermitRootLogin"
-    line: "PermitRootLogin no"
+    dest: '/etc/ssh/sshd_config'
+    regexp: '^PermitRootLogin'
+    line: 'PermitRootLogin no'
     state: present
+  when: disable_root|default(true)|bool == true
 
 - name: Disable password login
   lineinfile:
-    dest: "/etc/ssh/sshd_config"
-    regexp: "^PasswordAuthentication"
-    line: "PasswordAuthentication no"
+    dest: '/etc/ssh/sshd_config'
+    regexp: '^PasswordAuthentication'
+    line: 'PasswordAuthentication no'
     state: present
 
 - name: Restart SSH
