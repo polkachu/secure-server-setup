@@ -1,6 +1,6 @@
-# Digital Ocean Initial Server Setup
+# Secure Server Setup
 
-Digital Ocean provides a machine with root access and insecure setup. This ansible playbook is designed to fix that. It is based on Ubuntu 20.04 (LTS) or 21.04 image, but it should be appliable to other Ubuntu images.
+Typically, a cloud server provides a machine with root access and insecure setup. This ansible playbook is designed to fix that. It is based on Ubuntu 20.04 (LTS) or 21.04 image, but it should be applicable to other Ubuntu images.
 
 ## Set Up Server
 
@@ -36,7 +36,7 @@ After running the main playbook, you can no longer re-run these two playbooks be
 
 ## Other considerations
 
-You may want to experiment the machine setup without the security lockdown, or vice versa. The repo provides separate playbooks for setup and security
+You may want to experiment the machine setup without the security lock-down, or vice versa. The repo provides separate playbooks for setup and security
 
 Setup:
 
