@@ -22,7 +22,7 @@ The main ansible playbook will both set up the machine and also secure the machi
 
 1. Create Users: Create "ansible" and "ubuntu" users and allow them sudo access. The idea is to have "ansible" to run ansible playbooks automatically and "ubuntu" for ad hoc manual server management.
 2. Configure Machine: Set the hostname (based on inventory file) and timezone (Los Angeles Time)
-3. Update machine: Simply update and upgrade all applications shipped with the OS.
+3. Update machine: Simply update and upgrade all applications shipped with the OS. d
 
 ### Secure machine:
 
