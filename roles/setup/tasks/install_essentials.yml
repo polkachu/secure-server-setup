@@ -6,5 +6,7 @@
       - ncdu
       - vnstat
       - tree
+      - htop
+      - zip
     state: latest
     update_cache: true
