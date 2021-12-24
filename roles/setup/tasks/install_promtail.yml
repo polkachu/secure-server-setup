@@ -61,7 +61,7 @@
 - name: start promtail service
   systemd:
     name: promtail
-    state: restarted
+    state: started
     daemon_reload: true
     enabled: true
   changed_when: false
