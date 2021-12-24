@@ -8,5 +8,6 @@
       - tree
       - htop
       - zip
+      - ufw
     state: latest
     update_cache: true

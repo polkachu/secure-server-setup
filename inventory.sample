@@ -9,3 +9,11 @@ hostname=server
 deployment_user=ubuntu
 ssh_port=22
 disable_root=true
+
+node_exporter=false
+node_exporter_version='1.2.2'
+
+promtail=false
+promtail_version='2.4.1'
+promtail_monitor=143.198.134.80
+promtail_name=something
