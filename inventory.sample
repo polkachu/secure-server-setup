@@ -5,14 +5,16 @@
 ansible_ssh_user=root
 ansible_ssh_private_key_file="~/.ssh/id_rsa"
 
-hostname=server
-deployment_user=ubuntu
-ssh_port=22
+hostname="SERVER_NAME"
+deployment_user="USER_NAME"
+ssh_port=22222
 disable_root=true
 
+# Node Exporter
 node_exporter=false
 node_exporter_version='1.2.2'
 
+# Promtail
 promtail=false
 promtail_version='2.4.1'
 promtail_monitor=143.198.134.80

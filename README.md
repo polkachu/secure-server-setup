@@ -20,9 +20,13 @@ The main ansible playbook will both set up the machine and also secure the machi
 
 ### Set up machine:
 
-1. Create Users: Create "ansible" and "ubuntu" users and allow them sudo access. The idea is to have "ansible" to run ansible playbooks automatically and "ubuntu" for ad hoc manual server management.
+1. Create Users: Create "ansible" and "ubuntu" users and allow them sudo access. The idea is to have "ansible" to run ansible playbooks automatically and "ubuntu" for ad hoc manual server management. ("ubuntu" is my chosen user. You can configure it in inventory file)
 2. Configure Machine: Set the hostname (based on inventory file) and timezone (Los Angeles Time)
-3. Update machine: Simply update and upgrade all applications shipped with the OS.
+3. Create aliases for easy server management
+4. Update machine: Simply update and upgrade all applications shipped with the OS.
+5. Install some essential software
+6. Optionally install node exporter (configurable in inventory)
+7. Optionally install promtail (configurable in inventory)
 
 ### Secure machine:
 
