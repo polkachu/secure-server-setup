@@ -17,5 +17,5 @@ node_exporter_version='1.2.2'
 # Promtail
 promtail=false
 promtail_version='2.4.1'
-promtail_monitor=192.168.0.0
+promtail_monitor='http://192.168.0.0:3100'
 promtail_name=something
