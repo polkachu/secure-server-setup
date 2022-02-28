@@ -10,6 +10,18 @@
   register: ufw_status_result
   changed_when: False
 
+- name: install fail2ban
+  apt:
+    name: fail2ban
+    state: present
+    update_cache: yes
+
+- name: Restart fail2ban
+  service:
+    name: fail2ban
+    state: restarted
+  changed_when: false
+
 - name: open alternative ssh port
   command: 'ufw allow {{ ssh_port }}/tcp'
 

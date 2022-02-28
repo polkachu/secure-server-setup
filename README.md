@@ -31,10 +31,11 @@ The main ansible playbook will both set up the machine and also secure the machi
 ### Secure machine:
 
 1. Install firewall
-2. Disable the default ssh port of 22, and set up the alternative port.
-3. Enable firewall to allow the alternative port and deny 22.
-4. Disable root account access
-5. Disable password authentication.
+2. Install fail2ban
+3. Disable the default ssh port of 22, and set up the alternative port.
+4. Enable firewall to allow the alternative port and deny 22.
+5. Disable root account access
+6. Disable password authentication.
 
 After running the main playbook, you can no longer re-run these two playbooks because you no longer have the root account access. Instead, you need to use "ubuntu" or "ansible" users to access server using ssh key through the alternative port.
 
