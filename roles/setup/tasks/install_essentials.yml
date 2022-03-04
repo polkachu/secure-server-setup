@@ -9,5 +9,6 @@
       - htop
       - zip
       - ufw
+      - bash-completion
     state: latest
     update_cache: true
