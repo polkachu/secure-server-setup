@@ -5,4 +5,4 @@
     dest: '/home/{{ deployment_user }}/.bash_aliases'
     owner: '{{deployment_user}}'
     group: '{{deployment_user}}'
-    mode: 0644
+    mode: '0644'

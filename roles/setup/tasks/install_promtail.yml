@@ -14,7 +14,7 @@
     owner: promtail
     group: promtail
     recurse: true
-    mode: 0755
+    mode: '0755'
   changed_when: false
 
 - name: install unzip
@@ -41,7 +41,7 @@
     remote_src: true
     owner: promtail
     group: promtail
-    mode: 755
+    mode: '0755'
 
 - name: Copy promtail config
   template:
@@ -56,7 +56,7 @@
     dest: '/etc/systemd/system/promtail.service'
     owner: root
     group: root
-    mode: 600
+    mode: '0600'
 
 - name: start promtail service
   systemd:
