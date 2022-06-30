@@ -8,6 +8,7 @@
       - tree
       - htop
       - zip
+      - git
       - ufw
       - bash-completion
     state: latest
