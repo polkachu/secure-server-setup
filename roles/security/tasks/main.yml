@@ -23,6 +23,12 @@
     port: "{{ ssh_port }}"
     proto: tcp
 
+- name: Deny port 22
+  ufw:
+    rule: deny
+    port: 22
+    proto: tcp
+
 - name: Disable port 22 on ssh config
   lineinfile:
     dest: '/etc/ssh/sshd_config'
