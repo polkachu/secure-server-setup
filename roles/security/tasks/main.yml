@@ -1,16 +1,11 @@
 ---
-- name: install ufw
+- name: Install ufw
   apt:
     name: ufw
     state: present
     update_cache: yes
 
-- name: ufw already enabled
-  command: ufw status verbose
-  register: ufw_status_result
-  changed_when: False
-
-- name: install fail2ban
+- name: Install fail2ban
   apt:
     name: fail2ban
     state: present
@@ -22,11 +17,17 @@
     state: restarted
   changed_when: false
 
-- name: open alternative ssh port
-  command: 'ufw allow {{ ssh_port }}/tcp'
+- name: Open ssh port
+  ufw:
+    rule: allow
+    port: "{{ ssh_port }}"
+    proto: tcp
 
-- name: close standard ssh port
-  command: ufw deny 22/tcp
+- name: Deny port 22
+  ufw:
+    rule: deny
+    port: 22
+    proto: tcp
 
 - name: Disable port 22 on ssh config
   lineinfile:
@@ -57,10 +58,6 @@
     state: restarted
   changed_when: false
 
-- name: enable firewall
-  shell: |
-    set -o pipefail
-    echo "y" | ufw enable
-  args:
-    executable: /bin/bash
-  when: not ufw_status_result.stdout is search("Status.* active")
+- name: Enable firewall
+  ufw: 
+    state: enabled
