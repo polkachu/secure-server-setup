@@ -6,3 +6,7 @@ alias system="cd /etc/systemd/system"
 alias home="cd ~"
 alias dua="du -h --max-depth=1 | sort -rh"
 alias hgrep="history | grep "
+alias log="sudo journalctl -fu"
+start() { sudo service "$@" start; }
+restart() { sudo service "$@" restart; }
+stop() { sudo service "$@" stop; }
