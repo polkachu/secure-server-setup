@@ -10,3 +10,7 @@ alias log="sudo journalctl -fu"
 start() { sudo service "$@" start; }
 restart() { sudo service "$@" restart; }
 stop() { sudo service "$@" stop; }
+
+# alias fp="sudo ufw status numbered | grep "
+# alias dp="echo 'y' | sudo ufw delete "
+# alias ap="sudo ufw allow "

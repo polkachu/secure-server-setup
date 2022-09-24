@@ -10,6 +10,7 @@
       - zip
       - git
       - ufw
+      - jq
       - bash-completion
     state: latest
     update_cache: true
