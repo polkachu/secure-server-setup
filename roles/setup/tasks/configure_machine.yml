@@ -1,8 +1,19 @@
 ---
 - name: change hostname
   hostname:
-    name: '{{hostname}}'
+    name: '{{ hostname }}'
 
 - name: Update Timezone to my time
   shell: 'timedatectl set-timezone America/Los_Angeles'
   changed_when: false
+
+- name: Update file limits for user
+  blockinfile:
+    path: /etc/security/limits.conf
+    insertbefore: '# End of file'
+    marker: '# {mark} ANSIBLE MANAGED BLOCK'
+    block: |
+      {{ deployment_user }} soft nofile 1048576
+      {{ deployment_user }} hard nofile 1048576
+      {{ deployment_user }} soft nproc 1048576
+      {{ deployment_user }} hard nproc 1048576
