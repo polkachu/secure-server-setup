@@ -10,6 +10,9 @@ alias log="sudo journalctl -fu"
 start() { sudo service "$@" start; }
 restart() { sudo service "$@" restart; }
 stop() { sudo service "$@" stop; }
+cheat() {
+  curl -m 10 "http://cheat.sh/${1}" 2>/dev/null || printf '%s\n' "[ERROR] Something broke"
+}
 
 # alias fp="sudo ufw status numbered | grep "
 # alias dp="echo 'y' | sudo ufw delete "
