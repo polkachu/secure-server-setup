@@ -2,6 +2,9 @@
 - name: Create users
   import_tasks: create_users.yml
 
+- name: Install essentials
+  import_tasks: install_essentials.yml
+
 - name: Configure Machine
   import_tasks: configure_machine.yml
 
@@ -10,9 +13,6 @@
 
 - name: Update machine
   import_tasks: update_machine.yml
-
-- name: Install essentials
-  import_tasks: install_essentials.yml
 
 - name: Install node exporter
   import_tasks: install_node_exporter.yml

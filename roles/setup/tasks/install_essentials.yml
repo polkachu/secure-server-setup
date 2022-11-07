@@ -12,5 +12,6 @@
       - ufw
       - jq
       - bash-completion
+      - cpufrequtils
     state: latest
     update_cache: true
