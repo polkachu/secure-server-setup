@@ -7,6 +7,7 @@ alias home="cd ~"
 alias dua="du -h --max-depth=1 | sort -rh"
 alias hgrep="history | grep "
 alias log="sudo journalctl -fu"
+alias reload="sudo systemctl daemon-reload"
 start() { sudo service "$@" start; }
 restart() { sudo service "$@" restart; }
 stop() { sudo service "$@" stop; }

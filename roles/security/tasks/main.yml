@@ -20,8 +20,22 @@
 - name: Open ssh port
   ufw:
     rule: allow
-    port: "{{ ssh_port }}"
+    port: '{{ ssh_port }}'
     proto: tcp
+
+- name: Deny private ip probing
+  ufw:
+    rule: deny
+    proto: any
+    direction: out
+    src: '{{ item }}'
+  loop:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+    - 100.64.0.0/10
+    - 198.18.0.0/15
+    - 169.254.0.0/16
 
 - name: Deny port 22
   ufw:
@@ -59,5 +73,5 @@
   changed_when: false
 
 - name: Enable firewall
-  ufw: 
+  ufw:
     state: enabled
