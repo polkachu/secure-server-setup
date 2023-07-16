@@ -1,7 +1,4 @@
 ---
-- name: open node_exporter port
-  command: ufw allow 9100/tcp
-
 - name: download node_exporter
   get_url:
     url: 'https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz'
