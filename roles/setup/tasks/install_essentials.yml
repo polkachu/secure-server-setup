@@ -14,5 +14,6 @@
       - bash-completion
       - cpufrequtils
       - ccze
+      - nginx
     state: latest
     update_cache: true

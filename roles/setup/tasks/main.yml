@@ -13,11 +13,3 @@
 
 - name: Update machine
   import_tasks: update_machine.yml
-
-- name: Install node exporter
-  import_tasks: install_node_exporter.yml
-  when: node_exporter|default(false)|bool == true
-
-- name: Install promtail
-  import_tasks: install_promtail.yml
-  when: promtail|default(false)|bool == true
