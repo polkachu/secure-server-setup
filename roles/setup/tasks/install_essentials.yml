@@ -13,5 +13,6 @@
       - jq
       - bash-completion
       - cpufrequtils
+      - ccze
     state: latest
     update_cache: true

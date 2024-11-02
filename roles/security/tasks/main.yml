@@ -15,6 +15,7 @@
   service:
     name: fail2ban
     state: restarted
+    enabled: true
   changed_when: false
 
 - name: Open ssh port
